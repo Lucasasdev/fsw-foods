@@ -1,7 +1,8 @@
 import * as React from "react";
+import Header from "./_components/Header";
 
 const Home = () => {
-    return <div className="bg-red-500 p-1">Hello, world!</div>;
+  return <Header />;
 };
 
 export default Home;
