@@ -3,6 +3,9 @@ import Header from "./_components/Header";
 import Search from "./_components/Search";
 import CategoryList from "./_components/Category-list";
 import Image from "next/image";
+import ProductList from "./_components/Product-list";
+import { Button } from "./_components/ui/button";
+import { ChevronRightIcon } from "lucide-react";
 
 const Home = () => {
   return (
@@ -29,6 +32,19 @@ const Home = () => {
           className="h-auto w-full object-contain"
           quality={100}
         />
+      </div>
+      <div className="space-y-4 pt-6">
+        <div className="flex items-center justify-between px-5">
+          <h2 className="font-semibold">Pedidos recomendados</h2>
+          <Button
+            variant="ghost"
+            className="h-fit p-0 text-primary hover:bg-transparent"
+          >
+            Ver todos
+            <ChevronRightIcon size={16} />
+          </Button>
+        </div>
+        <ProductList />
       </div>
     </>
   );
