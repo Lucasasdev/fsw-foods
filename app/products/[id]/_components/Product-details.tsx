@@ -49,9 +49,9 @@ const ProductDetails = ({
     });
 
   return (
-    <>
+    <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5 ">
       {/*RESTAURANTE*/}
-      <div className="flex items-center gap-[6px] px-5 pt-5">
+      <div className="flex items-center gap-[6px] px-5">
         <div className="relative mb-2 h-6 w-6">
           <Image
             src={product.restaurant.imageUrl}
@@ -140,11 +140,11 @@ const ProductDetails = ({
         <h3 className="font-semibold">Sobre</h3>
         <p className="text-sm text-muted-foreground">{product.description}</p>
       </div>
-      <div className="mt-6 space-y-3 pb-5">
+      <div className="mt-6 space-y-3">
         <h3 className="px-5 font-semibold">Sucos</h3>
         <ProductList products={complementaryProducts} />
       </div>
-    </>
+    </div>
   );
 };
 
