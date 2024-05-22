@@ -1,5 +1,6 @@
 "use client";
 
+import DeliveryInfo from "@/app/_components/Delivery-info";
 import DiscountBadge from "@/app/_components/Discount-badge";
 import ProductList from "@/app/_components/Product-list";
 import {
@@ -7,14 +8,8 @@ import {
   formatCurrency,
 } from "@/app/_components/_helpers/price";
 import { Button } from "@/app/_components/ui/button";
-import { Card } from "@/app/_components/ui/card";
 import { Prisma } from "@prisma/client";
-import {
-  BikeIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  TimerIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -50,7 +45,6 @@ const ProductDetails = ({
 
   return (
     <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5 ">
-      {/*RESTAURANTE*/}
       <div className="flex items-center gap-[6px] px-5">
         <div className="relative mb-2 h-6 w-6">
           <Image
@@ -64,21 +58,15 @@ const ProductDetails = ({
           {product.restaurant.name}
         </span>
       </div>
-      {/*NOME DO PRODUTO*/}
       <h1 className="mb-2 mt-1 px-5 text-xl font-semibold">{product.name}</h1>
-      {/*PREÇO DO PRODUTO E QUANTIDADE*/}
       <div className="flex justify-between px-5">
         <div>
           <div className="flex items-center gap-2">
-            {/*PREÇO COM DESCONTO*/}
             <h2 className="text-xl font-semibold">
               {formatCurrency(calculateProductTotalPrice(product))}
             </h2>
-            {/* BADGE DE DESCONTO*/}
             {product.discountPercentage && <DiscountBadge product={product} />}
           </div>
-
-          {/*PREÇO ORIGINAL*/}
           {product.discountPercentage > 0 && (
             <p className="text-sm text-muted-foreground">
               De: {formatCurrency(Number(product.price))}
@@ -102,38 +90,7 @@ const ProductDetails = ({
         </div>
       </div>
       <div className="px-5">
-        <Card className="mt-6 flex justify-around px-5 py-2">
-          {/*delivery price*/}
-          <div>
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <span className="text-sm">Entrega</span>
-              <BikeIcon size={14} />
-            </div>
-
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="text-sm font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p className="text-sm font-semibold">Grátis</p>
-            )}
-          </div>
-          {/*delivery time*/}
-          <div>
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <span className="text-sm">Entrega</span>
-              <TimerIcon size={14} />
-            </div>
-
-            {Number(product.restaurant.deliveryTimeMinutes) > 0 ? (
-              <p className="text-sm font-semibold">
-                {product.restaurant.deliveryTimeMinutes} min
-              </p>
-            ) : (
-              <p className="text-sm font-semibold">0 min</p>
-            )}
-          </div>
-        </Card>
+        <DeliveryInfo restaurant={product.restaurant} />
       </div>
 
       <div className="mt-6 space-y-3 px-5">
