@@ -4,6 +4,7 @@ import RestaurantImage from "./_components/Restaurant-image";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import DeliveryInfo from "@/app/_components/Delivery-info";
+import ProductList from "@/app/_components/Product-list";
 
 interface RestaurantPageProps {
   params: {
@@ -18,6 +19,16 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
     },
     include: {
       categories: true,
+      Product: {
+        take: 10,
+        include: {
+          restaurant: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
     },
   });
 
@@ -48,8 +59,28 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
           <span className="text-xs font-semibold">5.0</span>
         </div>
       </div>
+      {/*Delivery info*/}
       <div className="px-5">
         <DeliveryInfo restaurant={restaurant} />
+      </div>
+      {/*category badges*/}
+      <div className="mt-3 flex gap-4 overflow-x-scroll px-5 [&::-webkit-scrollbar]:hidden">
+        {restaurant.categories.map((category) => (
+          <div
+            key={category.id}
+            className="min-h-[26px] min-w-[167px] items-center rounded-lg bg-[#f4f4f5] text-center"
+          >
+            <span className="items-center text-xs text-muted-foreground">
+              {category.name}
+            </span>
+          </div>
+        ))}
+      </div>
+      {/*the most ordered products*/}
+      <div className="mt-6 space-y-4">
+        {/* TODO: Mostrar produtos mais pedidos quando implementarmos realização de pedido*/}
+        <h2 className="px-5  font-semibold">Mais pedidos</h2>
+        <ProductList products={restaurant.Product} />
       </div>
     </div>
   );
