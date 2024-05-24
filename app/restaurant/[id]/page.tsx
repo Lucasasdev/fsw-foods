@@ -18,7 +18,22 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       id: id,
     },
     include: {
-      categories: true,
+      categories: {
+        include: {
+          products: {
+            where: {
+              restaurantId: id,
+            },
+            include: {
+              restaurant: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
+        },
+      },
       Product: {
         take: 10,
         include: {
@@ -40,7 +55,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
     <div>
       <RestaurantImage restaurant={restaurant} />
 
-      <div className="flex items-center justify-between px-5 pt-5">
+      <div className="relative z-50 mt-[-1.5rem] flex items-center justify-between rounded-tl-3xl rounded-tr-3xl bg-white px-5 pt-5">
         {/*title*/}
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">
@@ -82,6 +97,13 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
         <h2 className="px-5  font-semibold">Mais pedidos</h2>
         <ProductList products={restaurant.Product} />
       </div>
+      {/*show each category and their products*/}
+      {restaurant.categories.map((category) => (
+        <div className="mt-6 space-y-4" key={category.id}>
+          <h2 className="px-5  font-semibold">{category.name}</h2>
+          <ProductList products={category.products} />
+        </div>
+      ))}
     </div>
   );
 };
