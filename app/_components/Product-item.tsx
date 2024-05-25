@@ -44,7 +44,7 @@ const ProductItem = ({ product }: IproductItemProps) => {
             </h3>
             {product.discountPercentage > 0 && (
               <span className="text-xs text-muted-foreground line-through">
-                {formatCurrency(calculateProductTotalPrice(product))}
+                {formatCurrency(Number(product.price))}
               </span>
             )}
           </div>
