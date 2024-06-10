@@ -4,9 +4,6 @@ import RestaurantItem from "@/app/_components/Restaurant-item";
 import { db } from "@/app/_lib/prisma";
 
 const recommendedRestaurant = async () => {
-  {
-    /* TODO: Como não temos nenhum fetch de restaurants mais pedidos vou adicionar todos os restaurante momentaneamente. */
-  }
   const restaurants = await db.restaurant.findMany({});
 
   return (
