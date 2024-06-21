@@ -43,7 +43,7 @@ const Home = async () => {
 
       <div className="px-5 pt-6">
         <PromoBanner
-          src="/promo-banner-01.png"
+          src="/Promo-banner-01.png"
           alt="Até 30% de desconto em pizzas!"
         />
       </div>
