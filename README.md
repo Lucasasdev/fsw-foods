@@ -1,51 +1,49 @@
-# FWS Food Delivery
+# FWS Foods Delivery
 
 A delivery food that simulates some of the main proposes Ifood's Application.
 
-<div style="display: flex; align-items: center; justify-content: center;">
-  <img src="https://github.com/Lucasasdev/fsw-foods/blob/main/public/appImages/fws-foods-sample-image.png" width="200"/>
-</div>
+<img src="https://github.com/Lucasasdev/fsw-foods/blob/main/.github/banner.png" alt="banner full stack week foods" width="1200"/>
 
-## Steps to install the project
+
+## Installation
 
 Follow the steps bellow to install and run the project:
 
-1. Clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/user-name/project-name.git
 
 ```
 
-2. Access the project directory:
+Access the project directory:
 
 ```bash
 cd project-name
 
 ```
 
-3. Install the dependencies:
+Install the dependencies:
 
 ```bash
 npm install
 
 ```
 
-4. Run the application:
+Run the application:
 
 ```bash
-npm run dev
+npm run dev/yarn dev
 ```
 
 
-## Tecnologies
+## Technologies
 
-- Next.js
-- Prisma
-- Shadcn
-- TypeScript
-- Figma
-
-## License
-
-[MIT Lisence](https://github.com/Lucasasdev/fsw-foods/blob/main/LICENSE.md)
+- ```Next.js```
+- ```Postgre```
+- ```Prisma```
+- ```Shadcn```
+- ```TypeScript```
+- ```TailwindCSS```
+- ```Docker```
+- ```Figma```
