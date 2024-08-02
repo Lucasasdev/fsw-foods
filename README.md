@@ -1,7 +1,5 @@
 # FWS Foods Delivery
 
-A delivery food that simulates some of the main proposes Ifood's Application.
-
 <img src="https://github.com/Lucasasdev/fsw-foods/blob/main/.github/banner.png" alt="banner full stack week foods" width="1200"/>
 
 
