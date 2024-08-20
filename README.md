@@ -2,6 +2,8 @@
 
 <img src="https://github.com/Lucasasdev/fsw-foods/blob/main/.github/banner.png" alt="banner full stack week foods" width="1200"/>
 
+## About
+A project presented by Felipe Rocha in the 4 edition Full Stack Week (**Marathon of programming**)
 
 ## Installation
 
@@ -33,7 +35,10 @@ Run the application:
 ```bash
 npm run dev/yarn dev
 ```
-
+## Requirements
+- Node
+- PostgreSQL
+- Docker(Optional)
 
 ## Technologies
 
