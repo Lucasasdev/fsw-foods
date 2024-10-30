@@ -1,9 +1,7 @@
 # FWS Foods Delivery
 
-<img src="https://github.com/Lucasasdev/fsw-foods/blob/main/.github/banner.png" alt="banner full stack week foods" width="1200"/>
-
 ## About
-A project presented by Felipe Rocha in the 4 edition Full Stack Week (**Marathon of programming**)
+A foods delivery plataform which was inspired by Ifood application design with some funcionalities as login, search through recommendations, filter restaurants and the possibility of pay by foods with a payment method.
 
 ## Installation
 
@@ -38,7 +36,6 @@ npm run dev/yarn dev
 ## Requirements
 - Node
 - PostgreSQL
-- Docker(Optional)
 
 ## Technologies
 
